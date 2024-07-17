@@ -1,5 +1,6 @@
 import CharacterCard from "./components/CharacterCard/CharacterCard.js";
 
+const apiEndpointUrl = "https://rickandmortyapi.com/api/character";
 const cardContainer = document.querySelector('[data-js="card-container"]');
 const searchBarContainer = document.querySelector(
   '[data-js="search-bar-container"]'
@@ -16,8 +17,6 @@ const page = 1;
 const searchQuery = "";
 
 async function fetchCharacters() {
-  const apiEndpointUrl = "https://rickandmortyapi.com/api/character";
-
   const response = await fetch(apiEndpointUrl);
 
   const data = await response.json();
