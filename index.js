@@ -12,3 +12,6 @@ const pagination = document.querySelector('[data-js="pagination"]');
 const maxPage = 1;
 const page = 1;
 const searchQuery = "";
+
+// Export functions and variables for use in SearchBar.js
+export { searchQuery };
