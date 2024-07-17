@@ -15,24 +15,26 @@ const maxPage = 1;
 const page = 1;
 const searchQuery = "";
 
-export async function fetchCharacters() {
-  // Fetch Anfrage an die API
-  const response = await fetch("https://rickandmortyapi.com/api/character/");
+async function fetchCharacters() {
+  const apiEndpointUrl = "https://rickandmortyapi.com/api/character";
+
+  const response = await fetch(apiEndpointUrl);
+
   const data = await response.json();
+  console.log(data);
 
-  // Extrahieren der ersten 20 Charaktere
-  const characters = data.results.slice(0, 20);
-
-  // Leeren des cardContainers
   cardContainer.innerHTML = "";
 
-  // Erstelle und hinzufügen der Charakterkarten
-  characters.forEach((character) => {
-    const characterCard = CharacterCard(character);
-    cardContainer.appendChild(characterCard);
+  data.results.forEach((element) => {
+    const characterCard = CharacterCard(
+      element.image,
+      element.name,
+      element.status,
+      element.species,
+      element.episode.length
+    );
+    cardContainer.append(characterCard);
   });
-
-  console.log(characters);
 }
 
 // Funktion aufrufen, um die Charaktere zu laden
