@@ -14,9 +14,8 @@ const pagination = document.querySelector('[data-js="pagination"]');
 // States
 const maxPage = 1;
 const page = 1;
-const searchQuery = "";
 
-export async function fetchCharacters() {
+export async function fetchCharacters(query) {
   const response = await fetch(apiEndpointUrl);
 
   const data = await response.json();
@@ -37,4 +36,4 @@ export async function fetchCharacters() {
 }
 
 // Funktion aufrufen, um die Charaktere zu laden
-fetchCharacters();
+fetchCharacters("");

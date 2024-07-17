@@ -8,6 +8,5 @@ searchBar.addEventListener("submit", async (event) => {
   event.preventDefault();
   const formData = new FormData(searchBar);
   const query = formData.get("query").trim();
-
   await fetchCharacters(query);
 });
